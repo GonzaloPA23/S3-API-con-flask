@@ -1,6 +1,7 @@
 from flask import Flask
 from base_de_datos import conexion
 from urllib.parse import quote_plus
+from flask_migrate import Migrate
 from models.area import AreaModel
 from models.empleado import EmpleadoModel
 
@@ -13,11 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:%s@localhost:5432
 # dentro de la aplicación de flask tendremos nuestra conexión a la base de datos
 conexion.init_app(app)
 
-@app.route('/tablas',methods=['GET'])
-def crearTablas():
-    # creará todas las tablas declaradas en el proyecto 
-    conexion.create_all()
-    return {"message": "Creación ejecutada exitosamente"} 
+Migrate(app, conexion) # inicializar la migración
 
 if __name__ == '__main__':
     app.run(debug=True)
