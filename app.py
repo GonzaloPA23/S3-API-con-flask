@@ -3,7 +3,7 @@ from base_de_datos import conexion
 from urllib.parse import quote_plus
 from flask_migrate import Migrate
 from flask_restful import Api
-from controllers.area import AreasController, AreaController
+from controllers.area import AreasController, AreaController, AreaIdController
 from controllers.empleado import EmpleadosController, EmpleadoController
 
 # Acá va toda la configuración de mi aplicación de flask y de mi api rest 
@@ -19,7 +19,8 @@ Migrate(app, conexion) # inicializar la migración
 # Acá se agregaran las rutas de nuestros controladores
 api.add_resource(AreasController, '/areas') # /areas es la ruta que va a tener nuestro controlador
 # api.add_resource(AreaController, '/area') # /area es la ruta que va a tener nuestro controlador
-api.add_resource(AreaController, '/area/<int:id>') # /area/<int:id> es la ruta que va a tener nuestro controlador
+api.add_resource(AreaIdController, '/area/<int:id>') # /area/<int:id> es la ruta que va a tener nuestro controlador
+api.add_resource(AreaController, '/area')
 api.add_resource(EmpleadosController,'/empleados') # /empleados es la ruta que va a tener nuestro controlador
 api.add_resource(EmpleadoController,'/empleado') # /empleado es la ruta que va a tener nuestro controlador
 
