@@ -4,3 +4,4 @@ from models.empleado import EmpleadoModel
 class EmpleadoRequestDTO(SQLAlchemyAutoSchema):
     class Meta:
         model = EmpleadoModel
+        include_fk = True
