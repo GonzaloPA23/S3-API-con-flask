@@ -7,6 +7,9 @@ from sqlalchemy.exc import IntegrityError
 
 class AreasController(Resource):
     def get(self):
+        """ 
+        file: yaml/getArea.yml 
+        """
         areas = conexion.session.query(AreaModel).all() # select * from areas
         resultado = AreaRequestDTO(many=True).dump(areas)
         return {
@@ -15,6 +18,9 @@ class AreasController(Resource):
     
 class AreaController(Resource):   
     def post(self):
+        """  
+        file: yaml/postArea.yml
+        """
        # crear una area
         data:dict = request.get_json()
         dto = AreaRequestDTO()
@@ -47,6 +53,9 @@ class AreaController(Resource):
     
 class AreaIdController(Resource):
     def get(self,id):
+        """ 
+        file: yaml/getAreaId.yml
+        """
         usuarioEncontrado = conexion.session.query(AreaModel).filter_by(id=id).first()
         if not usuarioEncontrado:
             return {

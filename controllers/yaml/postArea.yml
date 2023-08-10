@@ -1,0 +1,22 @@
+tags:
+  - Area
+operationId: postArea
+description: Creación de una area en la base de datos
+summary: Creación de una area
+parameters:
+  - in: body
+    name: body
+    description: Area a crear
+    schema:
+      properties:
+        nombre:
+          type: string
+          example: "Marketing"
+        piso:
+          type: integer
+          example: 2
+responses:
+  200:
+    description: Area creada con éxito
+    schema:
+      $ref: '#/definitions/Area' 

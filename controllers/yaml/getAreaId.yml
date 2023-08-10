@@ -1,0 +1,14 @@
+tags:
+  - Area
+operationId: getAreaId
+description: Lista la area con el id especificado
+summary: Devolver la area con el id especificado
+responses:
+  200:
+    description: La Area
+    schema:
+      properties:
+        content:
+          type: object
+          items:
+            $ref: '#/definitions/Area' 

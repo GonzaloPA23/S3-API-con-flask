@@ -1,0 +1,33 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Empresa de areas y empleados",
+    "description": "API para conocer/crear las areas y empleados de una empresa",
+    "contact": {
+      "responsibleDeveloper": "Gonzalo PA",
+      "email": "goldengpa23@gmail.com"
+    },
+    "version": "1.0"
+  },
+  "host": "127.0.0.1:5000",
+  "schemes": ["http", "https"],
+  "definitions": {
+    "Area": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": "1"
+        },
+        "nombre": {
+          "type": "string",
+          "example": "Ventas"
+        },
+        "piso": {
+            "type": "integer",
+            "example": "1"
+        }
+      }
+    }
+  }
+}

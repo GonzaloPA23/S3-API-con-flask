@@ -1,0 +1,14 @@
+tags:
+  - Area
+operationId: getAreas
+description: Lista todas las areas
+summary: Devolver las areas
+responses:
+  200:
+    description: Las Areas
+    schema:
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/definitions/Area'
